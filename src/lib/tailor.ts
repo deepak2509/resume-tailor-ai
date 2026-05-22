@@ -16,14 +16,19 @@ ${jobDescription}
 
 TASK:
 - Tailor the resume specifically for this role
-- Keep all experience truthful
+- Keep all experiences truthful
 - Rewrite bullet points to align with the job description
 - Inject relevant keywords naturally for ATS optimization
 - Use strong action verbs
-- Keep bullet points concise (1–2 lines)
+- Keep bullet points concise (2 lines)
 - Emphasize impact, metrics, and technologies (e.g., Python, Airflow, AWS, Spark, SQL)
 
 IMPORTANT:
+- Positioning of Target Role (headline/summary should clearly position the candidate for this specific role)
+- Skills Section: Not too generic and not poorly structured — group skills into clear, meaningful categories aligned with the JD
+- Show Scale, Business Impact, Complexity, and Ownership in every relevant bullet
+- Every bullet point must follow: Action + Tool + What + Impact
+- All bullet points must make sense (no vague or filler bullets)
 - Do NOT add fake experience
 - Do NOT change job titles or companies
 - Do NOT make it generic
