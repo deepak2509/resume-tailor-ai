@@ -19,6 +19,7 @@ TASK:
 - Keep all experiences truthful
 - Rewrite bullet points to align with the job description
 - Inject relevant keywords naturally for ATS optimization
+- For the candidate's India experience, rewrite the entire bullet points around a project (choose a sensible, realistic one yourself) developed with the requirements mentioned in the JD. The chosen project must make sense with the technical skills in the JD and the candidate's background.
 - Use strong action verbs
 - Keep bullet points concise (2 lines)
 - Emphasize impact, metrics, and technologies (e.g., Python, Airflow, AWS, Spark, SQL)
