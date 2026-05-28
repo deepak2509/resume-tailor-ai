@@ -86,13 +86,28 @@ function Home() {
   const onCopy = async () => {
     if (!result) return;
     await navigator.clipboard.writeText(result.resume);
-    toast.success("Copied to clipboard");
+    toast.success("Resume copied");
+  };
+
+  const onCopyCover = async () => {
+    if (!result?.coverLetter) return;
+    await navigator.clipboard.writeText(result.coverLetter);
+    toast.success("Cover letter copied");
   };
 
   const onDownload = async () => {
     if (!result) return;
     try {
       await downloadResumeDocx(result.resume);
+    } catch {
+      toast.error("Failed to generate DOCX");
+    }
+  };
+
+  const onDownloadCover = async () => {
+    if (!result?.coverLetter) return;
+    try {
+      await downloadResumeDocx(result.coverLetter, "cover-letter.docx");
     } catch {
       toast.error("Failed to generate DOCX");
     }
