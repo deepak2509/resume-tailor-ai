@@ -143,5 +143,8 @@ export const tailorResume = createServerFn({ method: "POST" })
       resume: parsed.resume ?? "",
       keywords: parsed.keywords ?? [],
       improvements: parsed.improvements ?? [],
+      coverLetter: parsed.coverLetter ?? "",
+    };
+  });
     };
   });
