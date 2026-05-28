@@ -1,7 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 
 export type TailorInput = { resumeText: string; jobDescription: string };
-export type TailorResult = { resume: string; keywords: string[]; improvements: string[] };
+export type TailorResult = { resume: string; keywords: string[]; improvements: string[]; coverLetter: string };
 
 const SYSTEM = `You are an expert resume optimizer for Data Engineering and Data roles.`;
 
@@ -41,7 +41,19 @@ Return a clean, professional, well-structured resume with:
 - Experience (tailored bullet points)
 - Projects (if present)
 
-Also extract the top 10 ATS keywords from the job description, and list 5 concise notes describing improvements you made to the resume.`;
+Also extract the top 10 ATS keywords from the job description, and list 5 concise notes describing improvements you made to the resume.
+
+Additionally, generate a customised cover letter for this exact role based on the tailored resume and job description. The cover letter MUST:
+- Sound 100% human-written, NOT AI-generated (no generic phrases like "I am writing to express my interest", "I am excited to apply", "perfect fit", "passionate about", "synergy", "leverage", "delve", "in today's fast-paced world", etc.)
+- Be conversational, specific, and personal — like a real candidate wrote it
+- Reference 2-3 concrete achievements/projects from the resume that map directly to the JD's requirements
+- Mention specific tools/technologies from the JD naturally
+- Be 3-4 short paragraphs, ~250-350 words
+- Open with a strong, non-generic hook (not "Dear Hiring Manager, I am applying for...")
+- Avoid clichés, buzzwords, em-dashes overuse, and overly formal/robotic tone
+- Use varied sentence lengths and natural transitions
+- Close with a confident, specific call to action (not "I look forward to hearing from you")
+- Use "Dear Hiring Manager," as the greeting unless a name is inferable from the JD`;
 }
 
 export const tailorResume = createServerFn({ method: "POST" })
@@ -92,8 +104,13 @@ export const tailorResume = createServerFn({ method: "POST" })
                     items: { type: "string" },
                     description: "5 short notes describing improvements made to the resume.",
                   },
+                  coverLetter: {
+                    type: "string",
+                    description:
+                      "A customised, human-sounding cover letter (250-350 words, 3-4 paragraphs) tailored to the JD and resume. Must not sound AI-generated.",
+                  },
                 },
-                required: ["resume", "keywords", "improvements"],
+                required: ["resume", "keywords", "improvements", "coverLetter"],
                 additionalProperties: false,
               },
             },
@@ -126,5 +143,6 @@ export const tailorResume = createServerFn({ method: "POST" })
       resume: parsed.resume ?? "",
       keywords: parsed.keywords ?? [],
       improvements: parsed.improvements ?? [],
+      coverLetter: parsed.coverLetter ?? "",
     };
   });
