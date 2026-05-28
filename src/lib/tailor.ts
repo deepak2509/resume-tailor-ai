@@ -104,8 +104,13 @@ export const tailorResume = createServerFn({ method: "POST" })
                     items: { type: "string" },
                     description: "5 short notes describing improvements made to the resume.",
                   },
+                  coverLetter: {
+                    type: "string",
+                    description:
+                      "A customised, human-sounding cover letter (250-350 words, 3-4 paragraphs) tailored to the JD and resume. Must not sound AI-generated.",
+                  },
                 },
-                required: ["resume", "keywords", "improvements"],
+                required: ["resume", "keywords", "improvements", "coverLetter"],
                 additionalProperties: false,
               },
             },
