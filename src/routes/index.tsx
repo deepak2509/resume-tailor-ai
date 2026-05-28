@@ -293,6 +293,27 @@ function Home() {
                       {result.resume}
                     </pre>
                   </div>
+
+                  {result.coverLetter && (
+                    <div>
+                      <div className="mb-2 flex items-center justify-between">
+                        <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                          Cover Letter
+                        </h3>
+                        <div className="flex gap-2">
+                          <Button variant="outline" size="sm" onClick={onCopyCover}>
+                            <Copy className="mr-2 h-4 w-4" /> Copy
+                          </Button>
+                          <Button size="sm" onClick={onDownloadCover}>
+                            <Download className="mr-2 h-4 w-4" /> DOCX
+                          </Button>
+                        </div>
+                      </div>
+                      <pre className="whitespace-pre-wrap rounded-lg border bg-muted/30 p-4 font-sans text-sm leading-relaxed">
+                        {result.coverLetter}
+                      </pre>
+                    </div>
+                  )}
                 </div>
               )}
             </CardContent>
