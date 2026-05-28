@@ -1,7 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 
 export type TailorInput = { resumeText: string; jobDescription: string };
-export type TailorResult = { resume: string; keywords: string[]; improvements: string[] };
+export type TailorResult = { resume: string; keywords: string[]; improvements: string[]; coverLetter: string };
 
 const SYSTEM = `You are an expert resume optimizer for Data Engineering and Data roles.`;
 
