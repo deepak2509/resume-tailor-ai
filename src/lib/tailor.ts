@@ -146,5 +146,3 @@ export const tailorResume = createServerFn({ method: "POST" })
       coverLetter: parsed.coverLetter ?? "",
     };
   });
-    };
-  });
